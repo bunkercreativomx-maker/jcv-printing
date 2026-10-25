@@ -255,6 +255,9 @@ html { scrollbar-color: var(--violet) var(--paper-2); }
 
 /* Portfolio */
 .work { margin-top: 88px; display: grid; grid-template-columns: 290px 1fr; gap: 40px; align-items: start; }
+.work__info { padding-top: 8px; }
+.work__info h3 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.02; font-weight: 860; font-stretch: 76%; text-transform: uppercase; }
+.work__info p { margin-top: 12px; color: rgb(255 255 255 / 0.86); }
 .work__tabs { display: grid; gap: 6px; }
 .work__tab { all: unset; box-sizing: border-box; cursor: pointer; display: grid; gap: 2px; padding: 16px 18px; border-radius: 14px; border: 1px solid transparent; color: rgb(255 255 255 / 0.86); transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 160ms var(--ease-out); }
 .work__tab strong { font-size: 1.05rem; font-weight: 750; color: inherit; }

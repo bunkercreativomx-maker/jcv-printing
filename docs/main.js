@@ -100,30 +100,6 @@
     const visIO = new IntersectionObserver(([e]) => { if (anim) e.isIntersecting ? anim.play() : anim.pause(); });
     visIO.observe(stage);
     let resizeT; addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(startScroll, 200); });
-    const select = (tab, focus) => {
-      if (tab.getAttribute('aria-selected') === 'true') return;
-      tabs.forEach(t => { t.setAttribute('aria-selected', String(t === tab)); t.tabIndex = t === tab ? 0 : -1; });
-      if (focus) tab.focus();
-      const n = tab.dataset.site, name = tab.querySelector('strong').textContent;
-      // preload, then swap behind a short blur crossfade
-      const a = new Image(), b = new Image(); a.src = `img/work/${n}-full.webp`; b.src = `img/work/${n}-m.webp`;
-      stage.classList.add('is-swapping');
-      Promise.all([a.decode().catch(()=>{}), b.decode().catch(()=>{}), new Promise(r => setTimeout(r, reduce ? 0 : 220))]).then(() => {
-        full.src = a.src; full.alt = `${name} website, full page`;
-        mob.src = b.src; mob.alt = `${name} website on a phone`;
-        host.textContent = tab.dataset.host; live.href = tab.dataset.url;
-        requestAnimationFrame(() => { stage.classList.remove('is-swapping'); startScroll(); });
-      });
-    };
-    tabs.forEach((t, i) => {
-      t.tabIndex = i === 0 ? 0 : -1;
-      t.addEventListener('click', () => select(t));
-      t.addEventListener('keydown', e => {
-        const k = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
-        if (!k) return; e.preventDefault();
-        select(tabs[(i + k + tabs.length) % tabs.length], true);
-      });
-    });
   }
 
   // ---------- Websites: free check quiz ----------
