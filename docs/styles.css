@@ -250,8 +250,6 @@ html { scrollbar-color: var(--violet) var(--paper-2); }
 .web__title span { display: block; color: #e9b8ff; }
 .web__lead { margin-top: 26px; font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: rgb(255 255 255 / 0.88); max-width: 52ch; }
 .web__ctas { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
-.web__partner { margin-top: 18px; font-size: 0.95rem; color: rgb(255 255 255 / 0.75); }
-.web__partner a { color: #fff; font-weight: 700; }
 
 /* Portfolio */
 .work { margin-top: 88px; display: grid; grid-template-columns: 290px 1fr; gap: 40px; align-items: start; }
