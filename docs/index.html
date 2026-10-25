@@ -93,60 +93,301 @@
 
   <div class="cmyk" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 
-  <!-- SERVICES BENTO -->
+  <!-- SERVICES -->
   <section class="services" id="services">
     <div class="wrap">
-      <h2 class="h2 reveal">Everything your business needs, printed under one roof.</h2>
-      <div class="bento">
-        <article class="tile tile--banners reveal">
-          <img src="img/banners.webp" alt="Large-format printer printing a colorful vinyl banner" loading="lazy" width="1000" height="1000">
-          <div class="tile__body">
-            <h3>Banners &amp; signs</h3>
-            <p>Vinyl banners, retractable stands, yard signs and storefront signs that people see from the street.</p>
-          </div>
-        </article>
-        <article class="tile tile--shirts reveal">
-          <img src="img/shirts.webp" alt="Stack of custom printed t-shirts with the JCV Printing logo" loading="lazy" width="1000" height="1000">
-          <div class="tile__body">
-            <h3>T-shirts</h3>
-            <p>Uniforms, events, teams and merch.</p>
-          </div>
-        </article>
-        <article class="tile tile--design reveal">
-          <i class="ph ph-pen-nib tile__icon" aria-hidden="true"></i>
-          <div class="tile__body">
-            <h3>Graphics &amp; custom design</h3>
-            <p>No logo or artwork yet? Bring the idea. We design it, send you a proof and print it.</p>
-          </div>
-        </article>
-        <article class="tile tile--cards reveal">
-          <img src="img/cards.webp" alt="Business cards, flyers, an invitation and round stickers" loading="lazy" width="1000" height="1000">
-          <div class="tile__body">
-            <h3>Cards, flyers &amp; invitations</h3>
-            <p>Business cards, flyers, postcards and invitations for every occasion.</p>
-          </div>
-        </article>
-        <article class="tile tile--decals reveal">
-          <img src="img/decals.webp" alt="Installer applying a vinyl decal to a storefront window" loading="lazy" width="1000" height="1000">
-          <div class="tile__body">
-            <h3>Decals &amp; window perf</h3>
-            <p>Window graphics you can see through from inside, stickers and cut vinyl.</p>
-          </div>
-        </article>
+      <div class="svc__head">
+        <h2 class="h2 reveal">If people need to see it, we print it.</h2>
+        <p class="svc__lead reveal">Ten services under one roof on Montana Ave. Pick what you need and see what we can do for your business, your event or your crew.</p>
       </div>
-      <ul class="chips reveal" aria-label="All services">
-        <li><i class="ph ph-pen-nib" aria-hidden="true"></i>Graphics</li>
-        <li><i class="ph ph-flag-banner" aria-hidden="true"></i>Banners</li>
-        <li><i class="ph ph-van" aria-hidden="true"></i>Vehicle wraps</li>
-        <li><i class="ph ph-signpost" aria-hidden="true"></i>Signs</li>
-        <li><i class="ph ph-t-shirt" aria-hidden="true"></i>T-shirts</li>
-        <li><i class="ph ph-files" aria-hidden="true"></i>Flyers</li>
-        <li><i class="ph ph-identification-card" aria-hidden="true"></i>Business cards</li>
-        <li><i class="ph ph-sticker" aria-hidden="true"></i>Decals</li>
-        <li><i class="ph ph-envelope-open" aria-hidden="true"></i>Invitations</li>
-        <li><i class="ph ph-dots-nine" aria-hidden="true"></i>Window perf</li>
-        <li><i class="ph ph-browser" aria-hidden="true"></i>Websites</li>
+
+      <div class="svc">
+        <div class="svc__tabs" role="tablist" aria-label="Our printing services">
+          <button role="tab" id="tab-banners" class="svc__tab" aria-selected="true" aria-controls="panel-banners" data-k="banners"><i class="ph ph-flag-banner" aria-hidden="true"></i><span>Banners</span></button>
+          <button role="tab" id="tab-signs" class="svc__tab" aria-selected="false" aria-controls="panel-signs" data-k="signs"><i class="ph ph-signpost" aria-hidden="true"></i><span>Signs</span></button>
+          <button role="tab" id="tab-wraps" class="svc__tab" aria-selected="false" aria-controls="panel-wraps" data-k="wraps"><i class="ph ph-van" aria-hidden="true"></i><span>Vehicle wraps</span></button>
+          <button role="tab" id="tab-shirts" class="svc__tab" aria-selected="false" aria-controls="panel-shirts" data-k="shirts"><i class="ph ph-t-shirt" aria-hidden="true"></i><span>T-shirts</span></button>
+          <button role="tab" id="tab-bizcards" class="svc__tab" aria-selected="false" aria-controls="panel-bizcards" data-k="bizcards"><i class="ph ph-identification-card" aria-hidden="true"></i><span>Business cards</span></button>
+          <button role="tab" id="tab-flyers" class="svc__tab" aria-selected="false" aria-controls="panel-flyers" data-k="flyers"><i class="ph ph-files" aria-hidden="true"></i><span>Flyers</span></button>
+          <button role="tab" id="tab-decals" class="svc__tab" aria-selected="false" aria-controls="panel-decals" data-k="decals"><i class="ph ph-sticker" aria-hidden="true"></i><span>Decals</span></button>
+          <button role="tab" id="tab-windowperf" class="svc__tab" aria-selected="false" aria-controls="panel-windowperf" data-k="windowperf"><i class="ph ph-dots-nine" aria-hidden="true"></i><span>Window perf</span></button>
+          <button role="tab" id="tab-invites" class="svc__tab" aria-selected="false" aria-controls="panel-invites" data-k="invites"><i class="ph ph-envelope-open" aria-hidden="true"></i><span>Invitations</span></button>
+          <button role="tab" id="tab-design" class="svc__tab" aria-selected="false" aria-controls="panel-design" data-k="design"><i class="ph ph-pen-nib" aria-hidden="true"></i><span>Graphic design</span></button>
+        </div>
+        <div class="svc__panels">
+          <article role="tabpanel" id="panel-banners" aria-labelledby="tab-banners" class="svc__panel is-active">
+            <figure class="svc__media"><img src="img/banners.webp" alt="Large-format printer printing a colorful vinyl banner" loading="eager" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Big, bright banners people read from across the street.</h3>
+                <p>Grand opening, sale, event or game day: a banner is the fastest way to tell the whole street what is going on. We print it big, sharp and ready to hang.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Grand openings</span><span>Trade shows</span><span>Sports teams</span><span>Churches</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Banners">Quote my banner <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Vinyl banners for indoor and outdoor use</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Retractable roll-up stands for events and lobbies</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Grand opening and sale banners</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Fence and building banners</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Church, school and team banners</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-signs" aria-labelledby="tab-signs" class="svc__panel">
+            <figure class="svc__media"><img src="img/signs.webp" alt="Yard sign and storefront sign printed by JCV Printing in El Paso" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Signs that bring people through your door.</h3>
+                <p>Your sign works 24 hours a day. We make yard signs, storefront signs and sidewalk signs that are clear, bold and easy to read from a moving car.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Contractors</span><span>Real estate</span><span>Restaurants</span><span>Political campaigns</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Signs">Quote my sign <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Yard signs with stakes</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Storefront and wall signs</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Sidewalk and A-frame signs</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Real estate and job-site signs</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Directional and parking signs</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-wraps" aria-labelledby="tab-wraps" class="svc__panel">
+            <figure class="svc__media"><img src="img/wraps.webp" alt="Van wrapped with JCV Printing graphics" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Turn your truck into a billboard that drives all over El Paso.</h3>
+                <p>A wrap pays for itself every time you park, drive or stop at a light. Full wraps, partial wraps or simple door lettering, designed to read clearly at 40 mph.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Contractors</span><span>HVAC and plumbing</span><span>Food trucks</span><span>Delivery fleets</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Vehicle wraps">Quote my wrap <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Full and partial vehicle wraps</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Door logos and lettering</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Fleet graphics for vans and trucks</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Food truck and trailer wraps</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Phone number and website lettering</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-shirts" aria-labelledby="tab-shirts" class="svc__panel">
+            <figure class="svc__media"><img src="img/shirts.webp" alt="Custom printed t-shirts with the JCV Printing logo" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Shirts your crew, team or family will actually wear.</h3>
+                <p>Look like a real team. Custom shirts for uniforms, events, reunions and merch, printed with your logo or a design we create for you.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Businesses</span><span>Sports teams</span><span>Family reunions</span><span>Events</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="T-shirts">Quote my shirts <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Work uniforms with your logo</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Team and league shirts</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Family reunion and event shirts</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Church, school and club shirts</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Merch to sell at your business</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-bizcards" aria-labelledby="tab-bizcards" class="svc__panel">
+            <figure class="svc__media"><img src="img/bizcards.webp" alt="Premium business cards with the JCV Printing logo" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>A first impression that stays in their wallet.</h3>
+                <p>A cheap card says cheap business. We print thick, clean business cards that make people keep yours and call you back.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Every business</span><span>Sales teams</span><span>Salons and barbers</span><span>Contractors</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Business cards">Quote my cards <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Single or double sided cards</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Matte and glossy finishes</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Cards for the whole team</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Appointment and loyalty cards</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Matching design with your sign and flyers</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-flyers" aria-labelledby="tab-flyers" class="svc__panel">
+            <figure class="svc__media"><img src="img/flyers.webp" alt="Stack of full-color promotional flyers" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Flyers and postcards that fill your next event.</h3>
+                <p>Promote a sale, a menu, a new service or an event. Full-color flyers, postcards and menus that people pick up and keep.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Restaurants</span><span>Events</span><span>Churches</span><span>Local services</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Flyers">Quote my flyers <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Full-color flyers</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Postcards and door hangers</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Take-out menus</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Brochures and handouts</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Event and promo posters</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-decals" aria-labelledby="tab-decals" class="svc__panel">
+            <figure class="svc__media"><img src="img/decals.webp" alt="Installer applying a vinyl decal to a storefront window" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Stickers and decals that put your brand everywhere.</h3>
+                <p>From logo stickers for packaging to cut-vinyl lettering for your window, door or truck. Custom shapes, any size.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Shops and restaurants</span><span>Product packaging</span><span>Vehicles</span><span>Offices</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Decals">Quote my decals <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Logo stickers and labels</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Die-cut custom shape stickers</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Cut-vinyl window and door lettering</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Hours of operation decals</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Wall and floor graphics</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-windowperf" aria-labelledby="tab-windowperf" class="svc__panel">
+            <figure class="svc__media"><img src="img/windowperf.webp" alt="Storefront windows covered with perforated window graphics" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Turn your windows into a full-color ad.</h3>
+                <p>Window perf covers the glass with your graphics on the outside while you can still see out from the inside. Perfect for storefronts and rear truck windows.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Storefronts</span><span>Clinics and offices</span><span>Vehicles</span><span>Restaurants</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Window perf">Quote my windows <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Full storefront window graphics</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>See-through from the inside</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Rear window graphics for trucks and vans</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Promo and seasonal window ads</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Privacy for offices and clinics</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-invites" aria-labelledby="tab-invites" class="svc__panel">
+            <figure class="svc__media"><img src="img/invites.webp" alt="Custom printed quinceañera, birthday and wedding invitations" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>Invitations as special as the celebration.</h3>
+                <p>Quinceañeras, weddings, baptisms, birthdays and baby showers. Custom designed invitations that get your guests excited before the party starts.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>Quinceañeras</span><span>Weddings</span><span>Baptisms</span><span>Birthdays</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Invitations">Quote my invitations <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Quinceañera invitations</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Wedding invitations and save the dates</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Baptism and first communion</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Birthday and baby shower invitations</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Thank-you cards and party signs</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article role="tabpanel" id="panel-design" aria-labelledby="tab-design" class="svc__panel">
+            <figure class="svc__media"><img src="img/design.webp" alt="Graphic designer working on a colorful layout with a printed proof" loading="lazy" width="1200" height="800"></figure>
+            <div class="svc__body">
+              <div class="svc__copy">
+                <h3>No design? No problem. We create it for you.</h3>
+                <p>Bring a sketch, a photo or just the idea. Our designers create your logo, flyer, banner or wrap, send you a proof and print it when you love it.</p>
+                <p class="svc__who"><strong>Popular for</strong><span>New businesses</span><span>Rebrands</span><span>Events</span><span>Anyone with an idea</span></p>
+                <div class="svc__ctas">
+                  <a class="btn btn--primary" href="#quote" data-service="Graphic design">Start my design <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+                  <a class="btn btn--ghost" href="sms:+19157042300">Text us a photo</a>
+                </div>
+              </div>
+              <div class="svc__list">
+                <h4>What we print</h4>
+                <ul>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Logo design and refresh</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Flyer, banner and sign layouts</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Vehicle wrap designs</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Social media graphics</li>
+                <li><i class="ph-bold ph-check" aria-hidden="true"></i>Proof before anything is printed</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <ul class="why">
+        <li class="reveal"><i class="ph ph-lightning" aria-hidden="true"></i><div><h3>Fast turnaround</h3><p>Opening Saturday? Tell us your date and we plan around it.</p></div></li>
+        <li class="reveal"><i class="ph ph-pen-nib" aria-hidden="true"></i><div><h3>Custom design available</h3><p>No artwork needed. We design it for you.</p></div></li>
+        <li class="reveal"><i class="ph ph-check-square-offset" aria-hidden="true"></i><div><h3>Proof before print</h3><p>You approve every detail before we print.</p></div></li>
+        <li class="reveal"><i class="ph ph-storefront" aria-hidden="true"></i><div><h3>One local shop</h3><p>Cards, signs, shirts and wraps. One place, one look.</p></div></li>
       </ul>
+    </div>
+
+    <div class="occasions" aria-label="Who we print for">
+      <div class="occasions__track">
+        <ul>
+          <li><i class="ph ph-storefront" aria-hidden="true"></i>Grand openings</li><li><i class="ph ph-crown" aria-hidden="true"></i>Quinceañeras</li><li><i class="ph ph-fork-knife" aria-hidden="true"></i>Restaurants</li><li><i class="ph ph-hammer" aria-hidden="true"></i>Contractors</li><li><i class="ph ph-church" aria-hidden="true"></i>Churches</li><li><i class="ph ph-graduation-cap" aria-hidden="true"></i>Schools</li><li><i class="ph ph-soccer-ball" aria-hidden="true"></i>Sports teams</li><li><i class="ph ph-truck" aria-hidden="true"></i>Food trucks</li><li><i class="ph ph-house-line" aria-hidden="true"></i>Real estate</li><li><i class="ph ph-heart" aria-hidden="true"></i>Weddings</li><li><i class="ph ph-scissors" aria-hidden="true"></i>Salons and barbers</li><li><i class="ph ph-confetti" aria-hidden="true"></i>Birthdays</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li><i class="ph ph-storefront"></i>Grand openings</li><li><i class="ph ph-crown"></i>Quinceañeras</li><li><i class="ph ph-fork-knife"></i>Restaurants</li><li><i class="ph ph-hammer"></i>Contractors</li><li><i class="ph ph-church"></i>Churches</li><li><i class="ph ph-graduation-cap"></i>Schools</li><li><i class="ph ph-soccer-ball"></i>Sports teams</li><li><i class="ph ph-truck"></i>Food trucks</li><li><i class="ph ph-house-line"></i>Real estate</li><li><i class="ph ph-heart"></i>Weddings</li><li><i class="ph ph-scissors"></i>Salons and barbers</li><li><i class="ph ph-confetti"></i>Birthdays</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="svc__band reveal">
+        <div>
+          <h3>Got something to print?</h3>
+          <p>Send us a photo of your idea, even a sketch on a napkin. We answer with a quote.</p>
+        </div>
+        <div class="svc__band-ctas">
+          <a class="btn btn--light" href="#quote">Get a quote <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn--outline-light" href="tel:+19157042300"><i class="ph-bold ph-phone" aria-hidden="true"></i> 915.704.2300</a>
+        </div>
+      </div>
     </div>
   </section>
 

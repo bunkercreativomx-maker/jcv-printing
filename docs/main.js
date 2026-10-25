@@ -37,7 +37,11 @@
 
   // Hide floating call button while the quote/visit section is on screen
   const fab = $('.fab'), quote = $('#quote');
-  if (fab && quote) new IntersectionObserver(([e]) => fab.classList.toggle('is-hidden', e.isIntersecting), { threshold: 0.15 }).observe(quote);
+  if (fab) {
+    const hideOn = $$('#quote, .svc__band, .check'); const seen = new Set();
+    const hio = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); fab.classList.toggle('is-hidden', seen.size > 0); }, { threshold: 0.15 });
+    hideOn.forEach(el => hio.observe(el));
+  }
   const heroCtas = $('.hero__ctas');
   if (fab && heroCtas) { fab.classList.add('is-early'); new IntersectionObserver(([e]) => fab.classList.toggle('is-early', e.isIntersecting || e.boundingClientRect.top > 0), { threshold: 0 }).observe(heroCtas); }
 
@@ -101,6 +105,27 @@
     visIO.observe(stage);
     let resizeT; addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(startScroll, 200); });
   }
+
+
+  // ---------- Services tabs ----------
+  const stabs = $$('.svc__tab');
+  const showSvc = (tab, focus) => {
+    stabs.forEach(t => { const on = t === tab; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; $('#panel-' + t.dataset.k).classList.toggle('is-active', on); });
+    if (focus) tab.focus();
+    if (matchMedia('(max-width: 1023px)').matches) tab.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
+  };
+  stabs.forEach((t, i) => {
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener('click', () => {
+      showSvc(t);
+      const panels = $('.svc__panels'); const r = panels.getBoundingClientRect();
+      if (r.top < 0 || r.top > innerHeight * 0.6) panels.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' });
+    });
+    t.addEventListener('keydown', e => {
+      const k = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (!k) return; e.preventDefault(); showSvc(stabs[(i + k + stabs.length) % stabs.length], true);
+    });
+  });
 
   // ---------- Websites: free check quiz ----------
   const quiz = $('#quiz');
