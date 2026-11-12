@@ -16,7 +16,7 @@
 <link rel="preload" href="img/hero.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20261112a">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
@@ -69,6 +69,7 @@
     <a class="btn btn--primary" href="#quote">Get a quote</a>
     <a class="btn btn--ghost" href="tel:+19157042300"><i class="ph-bold ph-phone" aria-hidden="true"></i> 915.704.2300</a>
   </div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 </header>
 
 <main id="main">
@@ -76,6 +77,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero__copy">
+      <p class="hero__eyebrow"><span class="pulse" aria-hidden="true"></span>Print shop on Montana Ave, El Paso</p>
       <h1 class="hero__title">
         <span class="reg" data-text="Your ideas.">Your ideas.</span>
         <span class="reg reg--violet" data-text="Our print.">Our print.</span>
@@ -86,9 +88,12 @@
         <a class="btn btn--ghost" href="tel:+19157042300"><i class="ph-bold ph-phone" aria-hidden="true"></i> 915.704.2300</a>
       </div>
     </div>
-    <figure class="hero__media">
-      <img src="img/hero.webp" alt="JCV Printing banner stand, t-shirt, business cards, flyers, stickers and yard sign" width="1600" height="1067" fetchpriority="high">
-    </figure>
+    <div class="crop crop--hero">
+      <figure class="hero__media">
+        <img src="img/hero.webp" alt="JCV Printing banner stand, t-shirt, business cards, flyers, stickers and yard sign" width="1600" height="1067" fetchpriority="high">
+      </figure>
+      <p class="crop__slug" aria-hidden="true">JCV&nbsp;/&nbsp;PROOF&nbsp;01 · C M Y K</p>
+    </div>
   </section>
 
   <div class="cmyk" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
@@ -393,7 +398,7 @@
 
   <!-- WRAPS -->
   <section class="wraps" id="wraps">
-    <img class="wraps__img" src="img/wraps.webp" alt="Ford Transit van wrapped with JCV Printing graphics in El Paso" loading="lazy" width="1800" height="1200">
+    <img class="wraps__img unveil" src="img/wraps.webp" alt="Ford Transit van wrapped with JCV Printing graphics in El Paso" loading="lazy" width="1800" height="1200">
     <div class="wraps__panel reveal">
       <h2 class="h2">Your van works all day. Make it advertise all day too.</h2>
       <p>Full and partial vehicle wraps, door logos and lettering for vans, trucks and work cars. We design it to read clearly at 40 mph.</p>
@@ -404,9 +409,11 @@
   <!-- PROCESS -->
   <section class="process">
     <div class="wrap process__grid">
-      <figure class="process__media reveal">
-        <img src="img/shop.webp" alt="JCV Printing technician checking the color of a fresh print" loading="lazy" width="1000" height="1250">
-      </figure>
+      <div class="crop crop--process">
+        <figure class="process__media unveil">
+          <img src="img/shop.webp" alt="JCV Printing technician checking the color of a fresh print" loading="lazy" width="1000" height="1250">
+        </figure>
+      </div>
       <div class="process__copy">
         <h2 class="h2 reveal">Fast turnaround. Real people checking every print.</h2>
         <ol class="steps">
@@ -432,25 +439,38 @@
         </div>
       </div>
 
-      <!-- PORTFOLIO -->
-      <div class="work" id="work">
-        <div class="work__info">
-          <h3>Smock It Pool Service</h3>
-          <p>Pool care, El Paso. A site that shows the work with before and after photos, lists every service and puts the call button one tap away.</p>
-        </div>
+      <!-- CLIENT WORK -->
+      <article class="case" id="work" aria-labelledby="case-title">
+        <header class="case__head">
+          <div>
+            <p class="eyebrow reveal">Client work</p>
+            <h3 class="case__title reveal" id="case-title">Smock It Pool Service</h3>
+            <p class="case__lead reveal">Pool care in El Paso. A site that shows the work, lists every service and puts the call button one tap away.</p>
+          </div>
+          <dl class="case__facts reveal">
+            <div><dt>Industry</dt><dd>Pool maintenance</dd></div>
+            <div><dt>Area</dt><dd>El Paso, TX</dd></div>
+            <div><dt>Built for</dt><dd>Calls from a phone</dd></div>
+          </dl>
+        </header>
         <div class="work__stage">
           <div class="browser">
-            <div class="browser__bar"><span></span><span></span><span></span><em class="browser__url" id="work-host">smockitpool.com</em></div>
+            <div class="browser__bar"><span></span><span></span><span></span><em class="browser__url" id="work-host"><i class="ph-bold ph-lock-simple" aria-hidden="true"></i>smockitpool.com</em></div>
             <div class="browser__screen">
-              <img id="work-full" src="img/work/smock-full.webp" alt="Smock It Pool Service website, full page" width="960" height="3733" decoding="async">
+              <img id="work-full" src="img/work/smock-full.webp" alt="Smock It Pool Service website, full page" width="960" height="3733" decoding="async" loading="lazy">
             </div>
           </div>
           <div class="phone">
-            <img id="work-mobile" src="img/work/smock-m.webp" alt="Smock It Pool Service website on a phone" width="390" height="844" decoding="async">
+            <img id="work-mobile" src="img/work/smock-m.webp" alt="Smock It Pool Service website on a phone" width="390" height="844" decoding="async" loading="lazy">
           </div>
-          <a class="work__live" id="work-live" href="https://smockitpool.com/" target="_blank" rel="noopener">Visit the live site <i class="ph-bold ph-arrow-up-right" aria-hidden="true"></i></a>
         </div>
-      </div>
+        <footer class="case__foot">
+          <ul class="case__tags" aria-label="What the site includes">
+            <li>Mobile-first</li><li>Click-to-call</li><li>Service pages</li><li>Google-ready</li>
+          </ul>
+          <a class="work__live" id="work-live" href="https://smockitpool.com/" target="_blank" rel="noopener">Visit the live site <i class="ph-bold ph-arrow-up-right" aria-hidden="true"></i></a>
+        </footer>
+      </article>
 
       <!-- FEATURE BENTO -->
       <div class="wins">
@@ -458,26 +478,51 @@
           <i class="ph ph-map-pin-line" aria-hidden="true"></i>
           <h3>Show up on Google Maps</h3>
           <p>Local search setup and a Google Business Profile that sends people to your door, not to the shop down the street.</p>
+          <div class="demo demo--maps" aria-hidden="true">
+            <div class="maps__search"><i class="ph-bold ph-magnifying-glass"></i><span class="type">print shop near me</span></div>
+            <div class="maps__result">
+              <span class="maps__pin"><i class="ph-bold ph-map-pin"></i></span>
+              <div><strong>Your business</strong><small>El Paso, TX</small></div>
+              <span class="maps__btn"><i class="ph-bold ph-navigation-arrow"></i>Directions</span>
+              <span class="maps__btn"><i class="ph-bold ph-phone"></i>Call</span>
+            </div>
+          </div>
         </article>
         <article class="win win--phone reveal">
           <i class="ph ph-device-mobile" aria-hidden="true"></i>
           <h3>Made for the phone in their hand</h3>
           <p>Fast, clear and one tap from a call, a text or directions.</p>
+          <div class="demo demo--tap" aria-hidden="true">
+            <span class="tap__btn"><i class="ph-bold ph-phone"></i>Call now</span>
+            <span class="tap__ring"></span>
+          </div>
         </article>
         <article class="win win--brand reveal">
           <i class="ph ph-palette" aria-hidden="true"></i>
           <h3>Looks like your sign, van and cards</h3>
           <p>One brand everywhere. We print it and we put it online.</p>
+          <ul class="demo demo--brand" aria-hidden="true">
+            <li><i class="ph ph-signpost"></i></li><li><i class="ph ph-van"></i></li><li><i class="ph ph-identification-card"></i></li><li><i class="ph ph-browser"></i></li>
+          </ul>
         </article>
         <article class="win win--lang reveal">
           <i class="ph ph-translate" aria-hidden="true"></i>
           <h3>English and Spanish</h3>
           <p>Sell to both sides of the border.</p>
+          <div class="demo demo--lang">
+            <div class="seg" role="group" aria-label="Preview language">
+              <span class="seg__thumb" aria-hidden="true"></span>
+              <button type="button" class="seg__btn" aria-pressed="true" data-lang="en">EN</button>
+              <button type="button" class="seg__btn" aria-pressed="false" data-lang="es">ES</button>
+            </div>
+            <p class="lang__sample" aria-live="polite"><span data-en="Get a free quote" data-es="Cotiza gratis">Get a free quote</span></p>
+          </div>
         </article>
         <article class="win win--leads reveal">
           <i class="ph ph-envelope-simple-open" aria-hidden="true"></i>
           <h3>Leads, not just visits</h3>
           <p>Quote forms, click-to-call and WhatsApp buttons placed where people actually tap.</p>
+          <ol class="demo demo--toasts" aria-hidden="true"></ol>
         </article>
       </div>
 
@@ -631,6 +676,6 @@
 
 <a class="fab" href="tel:+19157042300" aria-label="Call JCV Printing"><i class="ph-bold ph-phone" aria-hidden="true"></i><span>Call</span></a>
 
-<script src="main.js" defer></script>
+<script src="main.js?v=20261112a" defer></script>
 </body>
 </html>

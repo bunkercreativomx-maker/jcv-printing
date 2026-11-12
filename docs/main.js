@@ -167,4 +167,64 @@
       sendText(body, cstatus);
     });
   }
+
+  // ---------- v2: unveil images, live bento demos, EN/ES toggle, toasts, spotlight ----------
+  const unveilIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); unveilIO.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  $$('.unveil').forEach(el => unveilIO.observe(el));
+
+  // One-shot demos stay on; looping demos only run while visible (saves battery, no off-screen work)
+  const demoIO = new IntersectionObserver(es => es.forEach(e => {
+    const loop = e.target.matches('.demo--tap, .demo--toasts');
+    if (e.isIntersecting) { e.target.classList.add('is-on'); if (!loop) demoIO.unobserve(e.target); }
+    else if (loop) e.target.classList.remove('is-on');
+    if (e.target.matches('.demo--toasts')) e.isIntersecting ? toasts.start() : toasts.stop();
+  }), { threshold: 0.4 });
+
+  // EN / ES
+  $$('.seg').forEach(seg => {
+    const sample = seg.parentElement.querySelector('.lang__sample'), span = sample.querySelector('span');
+    seg.addEventListener('click', e => {
+      const b = e.target.closest('.seg__btn'); if (!b || b.getAttribute('aria-pressed') === 'true') return;
+      $$('.seg__btn', seg).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      seg.dataset.on = b.dataset.lang;
+      if (reduce) { span.textContent = span.dataset[b.dataset.lang]; return; }
+      sample.classList.add('is-swapping');
+      setTimeout(() => { span.textContent = span.dataset[b.dataset.lang]; sample.classList.remove('is-swapping'); }, 180);
+    });
+  });
+
+  // Lead toasts: newest enters from below, older ones stack and fade (transitions, so rapid updates retarget)
+  const toastBox = $('.demo--toasts');
+  const toasts = (() => {
+    const items = [
+      ['ph-chat-circle-dots', 'New quote request', 'Banners · from your website'],
+      ['ph-phone-call', 'Missed call returned', 'Found you on Google Maps'],
+      ['ph-whatsapp-logo', 'WhatsApp message', '"Do you print on shirts?"'],
+      ['ph-map-pin', 'Directions requested', '2.1 mi from your shop']
+    ];
+    let n = 0, t = null;
+    const layout = () => [...toastBox.children].filter(el => !el.dataset.exit).reverse().forEach((el, i) => {
+      el.style.setProperty('--i', i);
+      if (i > 2) { el.dataset.exit = ''; setTimeout(() => el.remove(), 400); }
+    });
+    const push = () => {
+      const [ic, a, b] = items[n++ % items.length];
+      const li = document.createElement('li'); li.className = 'toast'; li.dataset.enter = '';
+      li.innerHTML = `<i class="ph-bold ${ic}"></i><div><strong>${a}</strong><small>${b}</small></div>`;
+      toastBox.append(li); li.getBoundingClientRect(); delete li.dataset.enter; layout();
+    };
+    return {
+      start() { if (t) return; if (!toastBox.children.length) { push(); } if (reduce) { push(); push(); return; } t = setInterval(() => { if (!document.hidden) push(); }, 2200); },
+      stop() { clearInterval(t); t = null; }
+    };
+  })();
+  $$('.demo--maps, .demo--tap, .demo--brand, .demo--toasts').forEach(el => demoIO.observe(el));
+
+  // Spotlight: set vars on the card itself (not a shared parent) to keep style recalc local
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    $$('.pk__card').forEach(c => c.addEventListener('pointermove', e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', `${e.clientX - r.left}px`); c.style.setProperty('--my', `${e.clientY - r.top}px`);
+    }));
+  }
 })();
