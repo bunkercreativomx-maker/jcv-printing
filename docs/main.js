@@ -227,4 +227,44 @@
       c.style.setProperty('--mx', `${e.clientX - r.left}px`); c.style.setProperty('--my', `${e.clientY - r.top}px`);
     }));
   }
+
+  // ---------- Real work gallery: filters + lightbox ----------
+  const gal = $('#gallery');
+  if (gal) {
+    const items = $$('.g__item', gal), chips = $$('.chip'), count = $('#g-count');
+    chips.forEach(ch => ch.addEventListener('click', () => {
+      if (ch.getAttribute('aria-pressed') === 'true') return;
+      chips.forEach(c => c.setAttribute('aria-pressed', String(c === ch)));
+      const f = ch.dataset.f; let n = 0;
+      items.forEach(it => {
+        const show = f === 'all' || it.dataset.cat === f;
+        it.classList.remove('is-shown');
+        it.hidden = !show;
+        if (show) { it.style.setProperty('--d', `${Math.min(n, 8) * 35}ms`); void it.offsetWidth; it.classList.add('is-shown'); n++; }
+      });
+      count.textContent = n;
+    }));
+
+    const lb = $('#lightbox'), img = $('.lb__img', lb), capT = $('.lb__cap strong', lb), capS = $('.lb__cap small', lb);
+    let cur = 0;
+    const visible = () => items.filter(it => !it.hidden).map(it => $('.g__btn', it));
+    const show = (btn) => {
+      const set = () => { img.src = btn.dataset.full; img.width = btn.dataset.w; img.height = btn.dataset.h; img.alt = $('img', btn).alt; capT.textContent = btn.dataset.title; capS.textContent = btn.dataset.sub; };
+      if (!lb.open || reduce) { set(); return; }
+      lb.classList.add('is-swapping');
+      const done = () => { lb.classList.remove('is-swapping'); img.removeEventListener('load', done); };
+      img.addEventListener('load', done); set(); setTimeout(done, 400);
+    };
+    const step = (d) => { const v = visible(); cur = (cur + d + v.length) % v.length; show(v[cur]); };
+    $$('.g__btn', gal).forEach(b => b.addEventListener('click', () => { cur = visible().indexOf(b); show(b); lb.showModal(); }));
+    $('.lb__close', lb).addEventListener('click', () => lb.close());
+    $('.lb__nav--prev', lb).addEventListener('click', () => step(-1));
+    $('.lb__nav--next', lb).addEventListener('click', () => step(1));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+    lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+    // Swipe on phones: a quick flick is enough (velocity), not only distance
+    let sx = 0, st = 0;
+    lb.addEventListener('pointerdown', e => { sx = e.clientX; st = performance.now(); });
+    lb.addEventListener('pointerup', e => { const dx = e.clientX - sx, v = Math.abs(dx) / (performance.now() - st); if (Math.abs(dx) > 60 || (Math.abs(dx) > 20 && v > 0.11)) step(dx < 0 ? 1 : -1); });
+  }
 })();
